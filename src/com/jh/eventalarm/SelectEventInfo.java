@@ -64,8 +64,7 @@ public class SelectEventInfo {
 				jo = (JSONObject) JSONValue.parse(getReturnMsg(response));
 				ja = (JSONArray) jo.get("Items");
 
-				int inx = 0;
-				for (int cnt = ja.size(); inx < cnt; inx++) {
+				for (int inx = 0, cnt = ja.size(); inx < cnt; inx++) {
 					jo = (JSONObject) ja.get(inx);
 					eventName = jo.get("EventName").toString();
 					
