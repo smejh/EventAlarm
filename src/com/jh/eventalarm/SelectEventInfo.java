@@ -52,16 +52,17 @@ public class SelectEventInfo {
 
 		String eventId = "";
 		String eventName = "";
+		JSONObject jo;
+		JSONArray ja;
+		
 		try {
 			for (;;) {
 				response = httpclient.execute(post);
 
 				System.out.println(new Date());
 				
-				String msg = getReturnMsg(response);
-				
-				JSONObject jo = (JSONObject) JSONValue.parse(msg);
-				JSONArray ja = (JSONArray) jo.get("Items");
+				jo = (JSONObject) JSONValue.parse(getReturnMsg(response));
+				ja = (JSONArray) jo.get("Items");
 
 				int inx = 0;
 				for (int cnt = ja.size(); inx < cnt; inx++) {
